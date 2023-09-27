@@ -7,26 +7,20 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color color = Theme.of(context).primaryColor;
-
     Widget buttonSection = Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        _buildButtonColumn(color, Icons.call, 'CALL'),
-        _buildButtonColumn(color, Icons.near_me, 'ROUTE'),
-        _buildButtonColumn(color, Icons.share, 'SHARE'),
+        _buildButtonColumn(Colors.deepPurple, Icons.adb, 'ALIEN'),
+        _buildButtonColumn(Colors.deepPurple, Icons.rocket_launch, 'ROCKET'),
+        _buildButtonColumn(
+            Colors.deepPurple, Icons.satellite_rounded, 'SATELLITE'),
       ],
     );
 
     Widget textSection = Container(
       padding: const EdgeInsets.all(32),
       child: const Text(
-        'Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese '
-        'Alps. Situated 1,578 meters above sea level, it is one of the '
-        'larger Alpine Lakes. A gondola ride from Kandersteg, followed by a '
-        'half-hour walk through pastures and pine forest, leads you to the '
-        'lake, which warms to 20 degrees Celsius in the summer. Activities '
-        'enjoyed here include rowing, and riding the summer toboggan run.',
+        'Galaxies, those sprawling cosmic islands, ignite our imagination and beckon us to explore the boundless reaches of the universe. Each galaxy is a tapestry of stars, gas, dust, and dark matter, woven together by gravity\'s gentle hand. From the majestic spirals, like the Milky Way, to the enigmatic ellipticals, galaxies come in diverse forms, reflecting eons of cosmic ballet.',
         softWrap: true,
       ),
     );
@@ -44,14 +38,14 @@ class MyApp extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.only(bottom: 8),
                   child: const Text(
-                    'Oeschinen Lake Campground',
+                    'Lysandra Prime',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
                 Text(
-                  'Kandersteg, Switzerland',
+                  'Lysandra Prime is an awe-inspiring spiral galaxy',
                   style: TextStyle(
                     color: Colors.grey[500],
                   ),
@@ -59,24 +53,28 @@ class MyApp extends StatelessWidget {
               ],
             ),
           ),
-          /*3*/
-          Icon(
-            Icons.star,
-            color: Colors.red[500],
-          ),
-          const Text('41'),
         ],
       ),
     );
 
     return MaterialApp(
+      theme: ThemeData(
+        primarySwatch:
+            Colors.deepPurple, // This sets the primary color to deepPurple
+      ),
       title: 'Flutter layout demo',
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Thom App'),
+          title: const Text('Space App By Thom'),
         ),
-        body: Column(
+        body: ListView(
           children: [
+            Image.asset(
+              'images/galaxy.jpg',
+              width: 600,
+              height: 240,
+              fit: BoxFit.cover,
+            ),
             titleSection,
             buttonSection,
             textSection,
